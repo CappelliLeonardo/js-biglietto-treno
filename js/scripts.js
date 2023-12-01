@@ -6,8 +6,6 @@
 // L'output del prezzo finale va messo fuori in forma umana
 // (con massimo due decimali, per indicare centesimi sul prezzo).
 
-
-
 const kmPercorsi = prompt ("Inserire i km da percorrere")
 const etaClienti = prompt("Inserire età anagrafica")
 
@@ -25,23 +23,28 @@ console.log(
     `ticketcost  : ${ticketCost}`
 )
 
-let priceOver65;
-let priceUnder18;
-let priceNormal;
+let price;
 
+if (isNaN(etaClienti)){
+    alert("Il campo accetta solo numeri")
+};
+if (isNaN(kmPercorsi)){
+    alert("Il campo accetta solo numeri ")
+}
 
-/* MAGGIORE  o MINORE */
+/* MAGGIORE  o MINORE o COMPRESO */
 if ( etaClienti > 65 ) {
-    priceOver65 = (ticketCost * 0.6)
-    console.log(`price over 65 : ${priceOver65}`);
+    price = (ticketCost * 0.6).toFixed(2)
+    console.log(`price over 65 : ${price}`);
 }
 else if (etaClienti < 18) {
-    priceUnder18 = (ticketCost * 0.8)
-    console.log(`price under 18 : ${priceUnder18}`);
+    price = (ticketCost * 0.8).toFixed(2)
+    console.log(`price under 18 : ${price}`);
 }
 
 else if (etaClienti > 18 && etaClienti < 65) {
-    priceNormal = (ticketCost)
+    price = (ticketCost).toFixed(2)
+    console.log(`normal price : ${price}`);
 }
 
-
+document.getElementById("prezzo").innerHTML = `Questo è il prezzo del tuo ticket ${price} €`;
