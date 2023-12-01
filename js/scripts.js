@@ -34,17 +34,19 @@ if (isNaN(kmPercorsi)){
 
 /* MAGGIORE  o MINORE o COMPRESO */
 if ( etaClienti > 65 ) {
-    price = (ticketCost * 0.6).toFixed(2)
+    price = (ticketCost * 0.6)
     console.log(`price over 65 : ${price}`);
 }
 else if (etaClienti < 18) {
-    price = (ticketCost * 0.8).toFixed(2)
+    price = (ticketCost * 0.8)
     console.log(`price under 18 : ${price}`);
 }
 
 else if (etaClienti > 18 && etaClienti < 65) {
-    price = (ticketCost).toFixed(2)
+    price = (ticketCost)
     console.log(`normal price : ${price}`);
 }
+
+price = price.toFixed (2);
 
 document.getElementById("prezzo").innerHTML = `Questo è il prezzo del tuo ticket ${price} €`;
